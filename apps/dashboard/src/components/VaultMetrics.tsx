@@ -48,30 +48,35 @@ export function VaultMetrics({ data }: VaultMetricsProps) {
   const totalTVL = data.reduce((sum, vault) => sum + vault.totalTVL, 0)
   const totalStrategies = data.reduce((sum, vault) => sum + vault.strategies.length, 0)
 
-  const metrics = [
+  const metrics: Array<{
+    label: string
+    value: string
+    change: string
+    changeType: 'positive' | 'negative' | 'neutral'
+  }> = [
     {
       label: 'Total TVL',
       value: formatCurrency(totalTVL),
       change: '+12.5%',
-      changeType: 'positive' as const,
+      changeType: 'positive',
     },
     {
       label: 'Average APY',
       value: formatAPY(avgAPY),
       change: '+0.3%',
-      changeType: 'positive' as const,
+      changeType: 'positive',
     },
     {
       label: 'Active Strategies',
       value: totalStrategies.toString(),
       change: '+2',
-      changeType: 'neutral' as const,
+      changeType: 'neutral',
     },
     {
       label: 'Total Chains',
       value: '6',
       change: 'Arbitrum, Ethereum, Base, Plasma, Solana, BSC',
-      changeType: 'neutral' as const,
+      changeType: 'neutral',
     },
   ]
 
