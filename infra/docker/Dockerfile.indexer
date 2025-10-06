@@ -1,0 +1,26 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+COPY packages/indexer/package.json ./packages/indexer/
+
+RUN npm install -g pnpm@8.15.0
+RUN pnpm install --frozen-lockfile
+
+COPY packages/indexer ./packages/indexer
+
+WORKDIR /app/packages/indexer
+RUN pnpm build
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/packages/indexer/dist ./dist
+COPY --from=builder /app/packages/indexer/package.json ./
+
+RUN npm install -g pnpm@8.15.0
+RUN pnpm install --prod --frozen-lockfile
+
+CMD ["node", "dist/index.js"]

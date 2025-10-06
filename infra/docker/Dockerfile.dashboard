@@ -1,0 +1,31 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+COPY apps/dashboard/package.json ./apps/dashboard/
+
+RUN npm install -g pnpm@8.15.0
+RUN pnpm install --frozen-lockfile
+
+COPY apps/dashboard ./apps/dashboard
+COPY packages ./packages
+
+WORKDIR /app/apps/dashboard
+RUN pnpm build
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/apps/dashboard/.next ./.next
+COPY --from=builder /app/apps/dashboard/public ./public
+COPY --from=builder /app/apps/dashboard/package.json ./
+COPY --from=builder /app/apps/dashboard/next.config.js ./
+
+RUN npm install -g pnpm@8.15.0
+RUN pnpm install --prod --frozen-lockfile
+
+EXPOSE 3000
+
+CMD ["pnpm", "start"]

@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tsv-postgres
+    environment:
+      POSTGRES_DB: talken_vault
+      POSTGRES_USER: talken
+      POSTGRES_PASSWORD: talken_password
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: tsv-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+  yields-backend:
+    build:
+      context: ../../apps/yields-backend
+      dockerfile: ../../infra/docker/Dockerfile.yields-backend
+    container_name: tsv-yields-backend
+    ports:
+      - '3001:3001'
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  operator-api:
+    build:
+      context: ../../apps/operator-api
+      dockerfile: ../../infra/docker/Dockerfile.operator-api
+    container_name: tsv-operator-api
+    ports:
+      - '3002:3002'
+    environment:
+      NODE_ENV: production
+      PORT: 3002
+      REDIS_URL: redis://redis:6379
+      YIELDS_BACKEND_URL: http://yields-backend:3001
+    env_file:
+      - ../../apps/operator-api/.env
+    depends_on:
+      - redis
+      - yields-backend
+    restart: unless-stopped
+
+  dashboard:
+    build:
+      context: ../../apps/dashboard
+      dockerfile: ../../infra/docker/Dockerfile.dashboard
+    container_name: tsv-dashboard
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_YIELDS_BACKEND_URL: http://localhost:3001
+      NEXT_PUBLIC_OPERATOR_API_URL: http://localhost:3002
+    depends_on:
+      - yields-backend
+      - operator-api
+    restart: unless-stopped
+
+  indexer:
+    build:
+      context: ../../packages/indexer
+      dockerfile: ../../infra/docker/Dockerfile.indexer
+    container_name: tsv-indexer
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://talken:talken_password@postgres:5432/talken_vault
+    env_file:
+      - ../../packages/indexer/.env
+    depends_on:
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  redis-data:
+
+networks:
+  default:
+    name: tsv-network
