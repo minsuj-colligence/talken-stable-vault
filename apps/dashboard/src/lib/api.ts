@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const YIELDS_BACKEND_URL = process.env.NEXT_PUBLIC_YIELDS_BACKEND_URL || 'http://localhost:3001'
+// Use Next.js API route as proxy to avoid CORS issues
+const API_BASE_URL = typeof window !== 'undefined' ? '/api' : 'http://localhost:3000/api'
 
 export interface VaultAPY {
   vault: string
@@ -33,17 +34,17 @@ export interface Strategy {
 }
 
 export async function fetchVaultAPYs(): Promise<VaultAPY[]> {
-  const response = await axios.get(`${YIELDS_BACKEND_URL}/api/apy`)
+  const response = await axios.get(`${API_BASE_URL}/apy`)
   return response.data.data
 }
 
 export async function fetchChainAPY(chain: string): Promise<VaultAPY> {
-  const response = await axios.get(`${YIELDS_BACKEND_URL}/api/apy/${chain}`)
+  const response = await axios.get(`${API_BASE_URL}/apy/${chain}`)
   return response.data.data
 }
 
 export async function fetchStrategies(chain: string, limit: number = 10): Promise<Strategy[]> {
-  const response = await axios.get(`${YIELDS_BACKEND_URL}/api/strategies/${chain}?limit=${limit}`)
+  const response = await axios.get(`${API_BASE_URL}/strategies/${chain}?limit=${limit}`)
   return response.data.data
 }
 
