@@ -209,27 +209,49 @@ function setFeeBps(uint16 newBps) external onlyOwner {
 
 ---
 
-## 8. Dashboard App
+## 8. Service App
 
 * **Stack**: Next.js 14 (App Router) + Tailwind + shadcn/ui + Recharts + lucide-react icons.
-* **Main Page**: `/` with vault metrics cards, APY trends chart, and strategies table.
-* **Features**:
-  * **Auto-refresh**: Fetches `/api/yields` every 30 seconds
-  * **Metrics Cards** (4 cards):
-    * Total TVL, Average APY (weighted by vault allocation), Active Strategies, Total Chains (6)
-  * **APY Trends Chart**:
-    * 30-day historical trend for 3 vaults (EVM, Solana, BSC)
-    * EVM combines Ethereum + bridge chains (Arbitrum, Base, Plasma)
-    * Uses 30d average APY (apyMean30d) weighted by strategy allocation
-  * **Strategies Table**:
-    * Displays all strategies with vault/chain/protocol filters
-    * Columns: Protocol, Pool, Chain, Base APY, Reward APY, 30d Avg APY, Allocated, Weight
-    * Sortable by Protocol, Chain, Base APY, Allocated, Weight (3-state toggle)
-    * **Three-tier cascading filters**:
-      1. Vault Filter: EVM (Ethereum) / Solana / BSC
-      2. Chain Filter: Ethereum / Arbitrum / Base / Plasma / Solana / BSC
-      3. Protocol Filter: Dynamically filtered based on Vault + Chain selection
-* **Port**: 3000 (dashboard), 3001 (yields-backend)
+* **Structure**:
+  * `/` - Landing page with service overview, features, supported chains, and CTA
+  * `/app` - Main vault interaction page with wallet connection and deposit/withdraw
+  * `/dashboard` - Analytics dashboard with metrics, APY trends, and strategy details
+
+### Landing Page (`/`)
+* Hero section with service description
+* Stats: 6 chains, 3 vaults, 20+ strategies
+* Features showcase: Cross-chain, auto-optimization, EIP-4626, gasless txs
+* Supported chains display
+* Call-to-action buttons
+
+### App Page (`/app`)
+* **Wallet Connection**:
+  * EVM wallets (MetaMask) with ⟠ icon
+  * Solana wallets (Phantom) with ◎ icon
+  * Display: [Icon] address
+* **3 Vault Cards** (TalkenUSDe, TalkenUSDs, TalkenUSDb):
+  * Header: Vault name, chain badge, asset, weighted APY
+  * Stats: Total Value Locked, Your Invested
+  * Deposit/Withdraw tabs with amount input
+  * Wallet/Invested balance display with MAX button
+  * Current Protocol Allocations (top 5):
+    * [Chain Icon] Protocol • Asset/Pool    APY%  Weight%
+* **Auto-refresh**: Every 30 seconds
+* **Chain-specific deposit**: Only enabled when compatible wallet connected
+
+### Dashboard Page (`/dashboard`)
+* **Metrics Cards** (4 cards):
+  * Total TVL, Average APY (weighted), Active Strategies, Total Chains
+* **APY Trends Chart**:
+  * 30-day historical trend for 3 vaults
+  * Uses 30d average APY weighted by strategy allocation
+* **Strategies Table**:
+  * Filters: Vault → Chain → Protocol (cascading)
+  * Sortable columns: Protocol, Chain, Base APY, Allocated, Weight
+  * Display: Chain icon, protocol, pool/asset, APY, allocation %
+* **Auto-refresh**: Every 30 seconds
+
+* **Port**: 3000 (frontend), 3001 (yields-backend), 3002 (operator-api)
 
 ---
 

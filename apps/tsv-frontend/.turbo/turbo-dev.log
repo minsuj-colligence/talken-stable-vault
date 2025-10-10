@@ -1,0 +1,70 @@
+
+> @talken/dashboard@1.0.0 dev /Users/minsuj/Library/CloudStorage/GoogleDrive-minsuj@gmail.com/내 드라이브/Claude/talken-stable-vault/apps/dashboard
+> next dev
+
+  ▲ Next.js 14.2.33
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.9s
+ ○ Compiling / ...
+ ✓ Compiled / in 5.1s (1714 modules)
+ GET / 200 in 5414ms
+ ✓ Compiled in 334ms (822 modules)
+ ✓ Compiled in 685ms (1705 modules)
+ ✓ Compiled in 704ms (1705 modules)
+ ✓ Compiled in 191ms (1705 modules)
+ ✓ Compiled in 112ms (822 modules)
+ ✓ Compiled in 343ms (1705 modules)
+ ✓ Compiled in 219ms (1705 modules)
+ ✓ Compiled in 350ms (822 modules)
+ ✓ Compiled in 358ms (822 modules)
+ ✓ Compiled in 107ms (822 modules)
+ ✓ Compiled in 104ms (822 modules)
+ ✓ Compiled in 354ms (1705 modules)
+ ✓ Compiled in 710ms (523 modules)
+ ✓ Compiled in 203ms (528 modules)
+ ⚠ Fast Refresh had to perform a full reload when (app-pages-browser)/../../node_modules/.pnpm/next@14.2.33_react-dom@18.3.1_react@18.3.1/node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%7B%22request%22%3A%22%2FUsers%2Fminsuj%2FLibrary%2FCloudStorage%2FGoogleDrive-minsuj%40gmail.com%2F%E1%84%82%E1%85%A2%20%E1%84%83%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%2FClaude%2Ftalken-stable-vault%2Fapps%2Fdashboard%2Fsrc%2Fcomponents%2FHeader.tsx%22%2C%22ids%22%3A%5B%22Header%22%5D%7D&modules=%7B%22request%22%3A%22%2FUsers%2Fminsuj%2FLibrary%2FCloudStorage%2FGoogleDrive-minsuj%40gmail.com%2F%E1%84%82%E1%85%A2%20%E1%84%83%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%2FClaude%2Ftalken-stable-vault%2Fnode_modules%2F.pnpm%2Fnext%4014.2.33_react-dom%4018.3.1_react%4018.3.1%2Fnode_modules%2Fnext%2Ffont%2Fgoogle%2Ftarget.css%3F%7B%5C%22path%5C%22%3A%5C%22src%2Fapp%2Flayout.tsx%5C%22%2C%5C%22import%5C%22%3A%5C%22Inter%5C%22%2C%5C%22arguments%5C%22%3A%5B%7B%5C%22subsets%5C%22%3A%5B%5C%22latin%5C%22%5D%7D%5D%2C%5C%22variableName%5C%22%3A%5C%22inter%5C%22%7D%22%2C%22ids%22%3A%5B%5D%7D&modules=%7B%22request%22%3A%22%2FUsers%2Fminsuj%2FLibrary%2FCloudStorage%2FGoogleDrive-minsuj%40gmail.com%2F%E1%84%82%E1%85%A2%20%E1%84%83%E1%85%B3%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%87%E1%85%B3%2FClaude%2Ftalken-stable-vault%2Fapps%2Fdashboard%2Fsrc%2Fapp%2Fglobals.css%22%2C%22ids%22%3A%5B%5D%7D&server=false! changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 67ms
+ GET / 200 in 47ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 994ms (1770 modules)
+ ✓ Compiled in 394ms (853 modules)
+ ✓ Compiled in 158ms (853 modules)
+ ✓ Compiled in 132ms (853 modules)
+ ✓ Compiled in 155ms (853 modules)
+ ✓ Compiled in 299ms (1770 modules)
+ ✓ Compiled in 337ms (1770 modules)
+ ✓ Compiled in 220ms (1770 modules)
+ ✓ Compiled in 319ms (1770 modules)
+ GET / 200 in 90ms
+ ✓ Compiled /app in 410ms (1778 modules)
+ ✓ Compiled in 577ms (1792 modules)
+ ✓ Compiled in 280ms (1792 modules)
+ ✓ Compiled in 296ms (1792 modules)
+ ✓ Compiled in 705ms (1792 modules)
+ ✓ Compiled in 306ms (1792 modules)
+ ✓ Compiled in 820ms (1792 modules)
+ ✓ Compiled in 470ms (1792 modules)
+ ✓ Compiled in 289ms (1792 modules)
+ GET /app 200 in 85ms
+ ✓ Compiled in 545ms (1792 modules)
+ ✓ Compiled in 229ms (1792 modules)
+ ✓ Compiled in 212ms (1792 modules)
+ ✓ Compiled in 650ms (1792 modules)
+ GET /app 200 in 90ms
+ ✓ Compiled in 729ms (1792 modules)
+ ✓ Compiled in 598ms (1792 modules)
+ ✓ Compiled in 276ms (1792 modules)
+ ✓ Compiled in 265ms (1792 modules)
+ ✓ Compiled in 251ms (1792 modules)
+ ✓ Compiled in 600ms (1792 modules)
+ ✓ Compiled in 780ms (1792 modules)
+ GET /app 200 in 68ms
+ ✓ Compiled in 632ms (1792 modules)
+ ✓ Compiled in 784ms (1792 modules)
+ ✓ Compiled in 609ms (1792 modules)
+ GET /app 200 in 141ms
+ GET /app 200 in 38ms
+ GET / 200 in 417ms
+ GET / 200 in 62ms

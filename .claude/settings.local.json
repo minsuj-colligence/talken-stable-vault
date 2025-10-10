@@ -17,7 +17,14 @@
       "Bash(where vercel)",
       "Bash(npx vercel:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Read(//Users/minsuj/Library/CloudStorage/GoogleDrive-minsuj@gmail.com/내 드라이브/Claude/talken-stable-vault/**)",
+      "Bash(pnpm dev:*)",
+      "Bash(cd:*)",
+      "Bash(mv:*)",
+      "Bash(git mv:*)",
+      "Bash(git rebase:*)",
+      "Bash(git diff:*)"
     ],
     "deny": [],
     "ask": []

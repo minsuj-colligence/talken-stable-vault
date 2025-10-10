@@ -1,0 +1,17 @@
+
+> @talken/operator-api@1.0.0 dev /Users/minsuj/Library/CloudStorage/GoogleDrive-minsuj@gmail.com/내 드라이브/Claude/talken-stable-vault/apps/operator-api
+> tsx watch src/main.ts
+
+[2025-10-07 17:04:04.780 +0900] [32mINFO[39m: [36mOperator API running on port 3002[39m
+[2025-10-07 17:04:04.780 +0900] [32mINFO[39m: [36mHealth check: http://localhost:3002/api/health[39m
+5:04:37 PM [tsx] change in ./../../node_modules/.pnpm/@adraffy+ens-normalize@1.10.1/node_modules/@adraffy/ens-normalize/dist/index.cjs Restarting...
+[2025-10-07 17:04:37.374 +0900] [32mINFO[39m: [36mShutting down gracefully...[39m
+c[2025-10-07 17:04:38.514 +0900] [32mINFO[39m: [36mOperator API running on port 3002[39m
+[2025-10-07 17:04:38.514 +0900] [32mINFO[39m: [36mHealth check: http://localhost:3002/api/health[39m
+5:11:08 PM [tsx] change in ./../../node_modules/.pnpm/ethers@6.15.0/node_modules/ethers/lib.commonjs/abi/coders/number.js Restarting...
+5:11:08 PM [tsx] change in ./../../node_modules/.pnpm/ethers@6.15.0/node_modules/ethers/lib.commonjs/abi/coders/boolean.js Process hasn't exited. Killing process...
+c5:11:08 PM [tsx] change in ./../../node_modules/.pnpm/ethers@6.15.0/node_modules/ethers/lib.commonjs/abi/coders/anonymous.js Restarting...
+[2025-10-07 17:11:09.018 +0900] [32mINFO[39m: [36mOperator API running on port 3002[39m
+[2025-10-07 17:11:09.018 +0900] [32mINFO[39m: [36mHealth check: http://localhost:3002/api/health[39m
+[2025-10-07 17:11:09.019 +0900] [32mINFO[39m: [36mShutting down gracefully...[39m
+5:11:09 PM [tsx] change in ./../../node_modules/.pnpm/ethers@6.15.0/node_modules/ethers/lib.commonjs/abi/coders/fixed-bytes.js Process hasn't exited. Killing process...
